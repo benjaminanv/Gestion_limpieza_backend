@@ -15,3 +15,16 @@ class Edificio(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Trabajador(models.Model):
+    nombre = models.CharField(max_length=100)
+    rut = models.CharField(max_length=12, unique=True, validators=[validar_rut])
+    inicio_turno = models.TimeField()
+    fin_turno = models.TimeField()
+
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "trabajadores"
+
+    def __str__(self):
+        return self.nombre
