@@ -57,6 +57,10 @@ class Incidencia(models.Model):
         ("pendiente", "Pendiente"),
         ("resuelta", "Resuelta"),
     ]
-    
+    sala = models.ForeignKey(Sala, on_delete=models.CASCADE, related_name="incidencias")
+    trabajador = models.ForeignKey(Trabajador, on_delete=models.SET_NULL, null=True, blank=True, related_name="incidencias")
+    descripcion = models.CharField(max_length=255)
+    fecha = models.DateTimeField(auto_now_add=True)
+    estado = models.CharField(max_length=10, choices=ESTADOS, default="pendiente")
 
 
