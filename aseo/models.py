@@ -63,4 +63,8 @@ class Incidencia(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(max_length=10, choices=ESTADOS, default="pendiente")
 
+    class Meta:
+        ordering = ["-fecha"]
 
+    def __str__(self):
+        return f"{self.sala} - {self.descripcion[:30]}"
