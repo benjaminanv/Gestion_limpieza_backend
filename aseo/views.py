@@ -16,3 +16,22 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
     queryset = Trabajador.objects.prefetch_related("salas")
     serializer_class = TrabajadorSerializer
 
+
+class SalaViewSet(viewsets.ModelViewSet):
+    """CRUD de salas (entidad principal) con filtros opcionales."""
+
+    serializer_class = SalaSerializer
+
+    def get_queryset(self):
+        salas = Sala.objects.prefetch_related("trabajadores", "incidencias")
+        params = self.request.query_params
+        if params.get("piso"):
+            salas = salas.filter(piso=params["piso"])
+        if params.get("estado"):
+            salas = salas.filter(estado=params["estado"])
+        if params.get("edificio"):
+            salas = salas.filter(edificio__codigo=params["edificio"])
+        if params.get("buscar"):
+            salas = salas.filter(numero__icontains=params["buscar"])
+        return salas
+
