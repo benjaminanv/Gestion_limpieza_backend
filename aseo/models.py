@@ -35,3 +35,9 @@ class Sala(models.Model):
         ("pendiente", "Pendiente"),
         ("en_proceso", "En proceso"),
     ]
+
+    edificio = models.ForeignKey(Edificio, on_delete=models.CASCADE, related_name="salas")
+    numero = models.CharField(max_length=10) 
+    piso = models.PositiveSmallIntegerField()
+    estado = models.CharField(max_length=15, choices=ESTADOS, default="pendiente")
+    hora_ultima_limpieza = models.DateTimeField(null=True, blank=True)
