@@ -28,3 +28,10 @@ class Trabajador(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Sala(models.Model):
+    ESTADOS = [
+        ("limpio", "Limpio"),
+        ("pendiente", "Pendiente"),
+        ("en_proceso", "En proceso"),
+    ]
