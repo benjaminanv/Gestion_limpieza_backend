@@ -1,6 +1,9 @@
 from django.core.validators import RegexValidator
 from django.db import models
+from django.utils import timezone
 
+
+MAX_SALAS_POR_TRABAJADOR = 20 # limitador de salas por trabajador 
 validar_rut = RegexValidator(
     regex=r"^\d{1,2}\.\d{3}\.\d{3}-[\dkK]$",
     message="El RUT debe tener el formato 12.345.678-9",
