@@ -41,3 +41,8 @@ class Sala(models.Model):
     piso = models.PositiveSmallIntegerField()
     estado = models.CharField(max_length=15, choices=ESTADOS, default="pendiente")
     hora_ultima_limpieza = models.DateTimeField(null=True, blank=True)
+    trabajadores = models.ManyToManyField(Trabajador, related_name="salas", blank=True)
+
+
+
+    
