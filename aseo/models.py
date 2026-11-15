@@ -49,7 +49,7 @@ class Sala(models.Model):
                 models.UniqueConstraint(fields=["edificio", "numero"], name="sala_unica_por_edificio"),
             ]
 
-        def __str__(self):
+    def __str__(self):
             return self.numero
 
 class Incidencia(models.Model):
