@@ -43,6 +43,14 @@ class Sala(models.Model):
     hora_ultima_limpieza = models.DateTimeField(null=True, blank=True)
     trabajadores = models.ManyToManyField(Trabajador, related_name="salas", blank=True)
 
+    class Meta:
+            ordering = ["id"]
+            constraints = [
+                # No puede haber dos salas con el mismo número en el mismo edificio
+                models.UniqueConstraint(fields=["edificio", "numero"], name="sala_unica_por_edificio"),
+            ]
+
+        def __str__(self):
+            return self.numero
 
 
-    
