@@ -35,3 +35,14 @@ class SalaViewSet(viewsets.ModelViewSet):
             salas = salas.filter(numero__icontains=params["buscar"])
         return salas
 
+class IncidenciaViewSet(viewsets.ModelViewSet):
+    serializer_class = IncidenciaSerializer
+
+    def get_queryset(self):
+        incidencias = Incidencia.objects.all()
+        params = self.request.query_params
+        if params.get("sala"):
+            incidencias = incidencias.filter(sala_id=params["sala"])
+        if params.get("estado"):
+            incidencias = incidencias.filter(estado=params["estado"])
+        return incidencias
