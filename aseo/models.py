@@ -45,12 +45,18 @@ class Sala(models.Model):
 
     class Meta:
             ordering = ["id"]
-            constraints = [
-                # No puede haber dos salas con el mismo número en el mismo edificio
+            constraints = [ 
                 models.UniqueConstraint(fields=["edificio", "numero"], name="sala_unica_por_edificio"),
             ]
 
         def __str__(self):
             return self.numero
+
+class Incidencia(models.Model):
+    ESTADOS = [
+        ("pendiente", "Pendiente"),
+        ("resuelta", "Resuelta"),
+    ]
+    
 
 
