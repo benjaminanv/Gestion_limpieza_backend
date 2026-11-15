@@ -7,5 +7,12 @@ from .serializers import (
     SalaSerializer,
     TrabajadorSerializer,
 )
+class EdificioViewSet(viewsets.ModelViewSet):
+    queryset = Edificio.objects.all()
+    serializer_class = EdificioSerializer
 
+
+class TrabajadorViewSet(viewsets.ModelViewSet):
+    queryset = Trabajador.objects.prefetch_related("salas")
+    serializer_class = TrabajadorSerializer
 
