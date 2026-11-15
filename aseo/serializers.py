@@ -22,7 +22,7 @@ class TrabajadorSerializer(serializers.ModelSerializer):
 
     def validate(self, datos):
         inicio = datos.get("inicio_turno", getattr(self.instance, "inicio_turno", None))
-        fi  n = datos.get("fin_turno", getattr(self.instance, "fin_turno", None))
+        fin = datos.get("fin_turno", getattr(self.instance, "fin_turno", None))
         if inicio and fin and fin <= inicio:
             raise serializers.ValidationError("El fin del turno debe ser posterior al inicio.")
         return datos
