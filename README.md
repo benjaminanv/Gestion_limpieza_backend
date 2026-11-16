@@ -4,16 +4,16 @@
 
 ### Tecnologias Usadas
 
-Framework: Django
-API: Django rest Framework
-DataBase: Sqlite3
-Lenguaje: Python 3.X
+- Framework: Django
+- API: Django rest Framework
+- DataBase: Sqlite3
+- Lenguaje: Python 3.X
 
 ## Modelos
-Edificio -  Codigo, Nombre
-Trabajador - Nombre , Rut, Inicio_turno, Fin_turno
-Sala - Numero, Piso. Estado, Hora_ultima_limpieza
-Incidencia - Descripcion, Fecha, estado
+- Edificio -  Codigo, Nombre
+- Trabajador - Nombre , Rut, Inicio_turno, Fin_turno
+- Sala - Numero, Piso. Estado, Hora_ultima_limpieza
+- Incidencia - Descripcion, Fecha, estado
 
 ## Validaciones y Reglas de Negocio
 - EL piso debe ser 1 o mayor y no debe repetirse el numero de sala dentro de un mismo edificio.
@@ -42,7 +42,6 @@ Incidencia - Descripcion, Fecha, estado
    http://127.0.0.1:8000/api/
 
 ## Migraciones
-Las migraciones son archivos que describen cambios en la base de datos a partir de los modelos de aseo/models.py
 - python manage.py makemigrations aseo: genera la migración a partir de los modelos.
 - python manage.py migrate: aplica las migraciones y crea las tablas en db.sqlite3.
 - python manage.py cargar_datos: carga los datos iniciales (1 edificio, 6 trabajadores, 29 salas y 1 incidencia).
