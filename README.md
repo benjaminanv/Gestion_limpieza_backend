@@ -31,5 +31,19 @@ Incidencia - Descripcion, Fecha, estado
    python -m venv venv
    venv\Scripts\activate
 3. Instalar Dependencias
-   pip install -r requeriments.txt
-4. Cargar datos inciales
+   pip install -r requerements.txt
+4. Cargar tablas de la base de datos
+   python manage.py migrate
+5. Cargar datos inciiales
+   python manage.py cargar_datos
+6. Iniciar servidor
+   python manage.py runserver
+7. Acceder a la api
+   http://127.0.0.1:8000/api/
+
+## Migraciones
+Las migraciones son archivos que describen cambios en la base de datos a partir de los modelos de aseo/models.py
+- python manage.py makemigrations aseo: genera la migración a partir de los modelos.
+- python manage.py migrate: aplica las migraciones y crea las tablas en db.sqlite3.
+- python manage.py cargar_datos: carga los datos iniciales (1 edificio, 6 trabajadores, 29 salas y 1 incidencia).
+
