@@ -51,3 +51,24 @@
 - ![Evidencia POST](docs/evidencia/Captura%20de%20pantalla%202026-11-15%20223016.png)
 - ![Evidencia PUT](docs/evidencia/Captura%20de%20pantalla%202026-11-15%20223127.png)
 - ![Evidencia DELETE](docs/evidencia/Captura%20de%20pantalla%202026-11-15%20223219.png)
+
+## Documentación de Endpoints
+
+### 1. Salas
+-   Listar todas las salas: GET /api/salas/
+-   Consultar una sala: GET /api/salas/<id>/
+-   Registrar sala: POST /api/salas/ (Requiere enviar edificio, numero, piso, estado y trabajadores)
+-----Ejemplo de solicitud: Enviar los datos edificio=1, numero="L-14", piso=1, estado="limpio"
+-   Actualizar sala: PUT /api/salas/<id>/
+-----Ejemplo de solicitud: Enviar el dato estado="en_proceso".
+-   Eliminar sala: DELETE /api/salas/<id>/
+
+### 2. Trabajadores
+-   Listar trabajadores: GET /api/trabajadores/
+-   Registrar trabajador: POST /api/trabajadores/ (Requiere enviar nombre, rut, inicio_turno y fin_turno)
+-----Ejemplo de solicitud: Enviar los datos nombre="Carlos Veha", rut="20.812.391-2", inicio_turno="08:00:00", fin_turno="17:00:00".
+
+### 3. Incidencias
+-   Listar incidencias: GET /api/incidencias/
+-   Registrar incidencia: POST /api/incidencias/ (Requiere enviar sala, descripcion y estado)
+-----Ejemplo de solicitud: Enviar los datos sala=1, descripcion="Falta jabón en el dispensador", estado="pendiente".
