@@ -10,5 +10,6 @@ router.register("salas", views.SalaViewSet, basename="sala")
 router.register("incidencias", views.IncidenciaViewSet, basename="incidencia")
 
 urlpatterns = [
+    path("resumen/", views.ResumenView.as_view(), name="resumen"),
     path("", include(router.urls)),
 ]
