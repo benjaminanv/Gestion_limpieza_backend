@@ -21,7 +21,7 @@
 - El fin del turno tiene que ocurrir despues del inicio del turno
 - Regla de negocio 1: Al actualizar el estado de limpieza a limpio de una sala el servidor automaticamente genera el registro de hora de ultima limpieza.
 - regla de negocio 2: Un trabajador no puede tener mas de 20 salas asignadas. ( facil de modificar segun necesidad ).
-. Regla de negocio 3: Un trabajador solamente puede generar incidencias de sus salas asignadas
+- Regla de negocio 3: Un trabajador solamente puede generar incidencias de sus salas asignadas
   
 ## Instalacion y Ejecuciom
 1. Clonar repositorio
