@@ -47,7 +47,7 @@
 - python manage.py cargar_datos: carga los datos iniciales (1 edificio, 6 trabajadores, 29 salas y 1 incidencia).
 
 ## Evidencias
-- ![Evidencia GET](evidencias/Captura%20de%20pantalla%202026-11-15%20222851.png)
-- ![Evidencia POST](evidencias/Captura%20de%20pantalla%202026-11-15%20223016.png)
-- ![Evidencia PUT](evidencias/Captura%20de%20pantalla%202026-11-15%20223127.png)
-- ![Evidencia DELETE](evidencias/Captura%20de%20pantalla%202026-11-15%20223219.png)
+- ![Evidencia GET](docs/evidencias/Captura%20de%20pantalla%202026-11-15%20222851.png)
+- ![Evidencia POST](docs/evidencias/Captura%20de%20pantalla%202026-11-15%20223016.png)
+- ![Evidencia PUT](docs/evidencias/Captura%20de%20pantalla%202026-11-15%20223127.png)
+- ![Evidencia DELETE](docs/evidencias/Captura%20de%20pantalla%202026-11-15%20223219.png)
