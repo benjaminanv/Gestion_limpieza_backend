@@ -1,11 +1,14 @@
+from django.utils import timezone
 from rest_framework import serializers
 
-from .models import Edificio, Incidencia, Sala, Trabajador
+from .models import MAX_SALAS_POR_TRABAJADOR, Edificio, Incidencia, Sala, Trabajador
+
 
 class EdificioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Edificio
         fields = ["id", "codigo", "nombre"]
+
 
 class TrabajadorSerializer(serializers.ModelSerializer):
     salas = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
@@ -26,7 +29,8 @@ class TrabajadorSerializer(serializers.ModelSerializer):
         if inicio and fin and fin <= inicio:
             raise serializers.ValidationError("El fin del turno debe ser posterior al inicio.")
         return datos
-    
+
+
 class SalaSerializer(serializers.ModelSerializer):
     incidencias_pendientes = serializers.SerializerMethodField()
 
@@ -46,6 +50,23 @@ class SalaSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("El piso debe ser 1 o mayor.")
         return value
 
+    def validate_trabajadores(self, trabajadores):
+        for trabajador in trabajadores:
+            otras_salas = trabajador.salas.all()
+            if self.instance:
+                otras_salas = otras_salas.exclude(pk=self.instance.pk)
+            if otras_salas.count() >= MAX_SALAS_POR_TRABAJADOR:
+                raise serializers.ValidationError(
+                    f"{trabajador.nombre} ya tiene {MAX_SALAS_POR_TRABAJADOR} salas asignadas."
+                )
+        return trabajadores
+
+    def update(self, sala, datos):
+        if datos.get("estado") == "limpio" and sala.estado != "limpio":
+            sala.hora_ultima_limpieza = timezone.now()
+        return super().update(sala, datos)
+
+
 class IncidenciaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Incidencia
@@ -57,3 +78,12 @@ class IncidenciaSerializer(serializers.ModelSerializer):
         if len(value) < 5:
             raise serializers.ValidationError("Describe la incidencia con al menos 5 caracteres.")
         return value
+
+    def validate(self, datos):
+        sala = datos.get("sala", getattr(self.instance, "sala", None))
+        trabajador = datos.get("trabajador", getattr(self.instance, "trabajador", None))
+        if trabajador and sala and not sala.trabajadores.filter(pk=trabajador.pk).exists():
+            raise serializers.ValidationError(
+                {"trabajador": "Este trabajador no tiene asignada esa sala."}
+            )
+        return datos
