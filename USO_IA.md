@@ -3,16 +3,16 @@ En este proyecto se a utilizado la Inteligencia Artificial para complementar sol
 alguno de los problemas para los que se utilizo fueron rutas, migraciones, problemas en consola, conflictos de Git y subida de avance al repositorio
 
 ## Nivel de participación en la generación de código
-| models.py | 30% | Apoyo en la calidad del codigo. |
-| views.py | 40% | Sugerencias para estructurar los ViewSets de Django rest Framework. |
-| serializers.py | 30% | Apoyo basico para enlazar los modelos y habilitar la serialización JSON. |
-| README.md | 30% | tablas de endpoints, sintaxis de imágenes y subida de archivos (evidencias). |
-| settings.py | 20% | añadir las Installed_apps necesarias para Django. |
-| Urls.py | 70% | añardir los include al import y al urlpatterns. |
+- | models.py | 30% | Apoyo en la calidad del codigo. |
+- | views.py | 40% | Sugerencias para estructurar los ViewSets de Django rest Framework. |
+- | serializers.py | 30% | Apoyo basico para enlazar los modelos y habilitar la serialización JSON. |
+- | README.md | 30% | tablas de endpoints, sintaxis de imágenes y subida de archivos (evidencias). |
+- | settings.py | 20% | añadir las Installed_apps necesarias para Django. |
+- | Urls.py | 70% | añardir los include al import y al urlpatterns. |
 
 
 1. preguntas
-   - ¿En qué aspectos del proyecto utilizaron inteligencia artificial?
+- ¿En qué aspectos del proyecto utilizaron inteligencia artificial?
 En mayor medida se utlizo para resolver problemas entre consola e identacion, ademas de permitir optimizar tiempo con el traslado de datos de carga inciales desde el frontend para no tener que tomarse el tiempo de traspasar dato por dato que seria un proceso demasiado lento, gran parte del codigo esta realizado por mi pero igual hay varias capas que la ia en especifico claude me ayudo a corregir dado que sufro demasiados problemas con faltas en la escritura por ejemplo se me escapa una letra o omito alguna coma
 - ¿Qué partes del código fueron desarrolladas principalmente por ustedes?
 en su mayoria fue realizada por mi, pero tambien como lo mencione arriba la ia cumplia la funcion de revisión de mi codigo para evitar problemas que se lleven a un largo plazo dandome cuenta cuando ya sea tarde
