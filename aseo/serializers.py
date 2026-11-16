@@ -11,7 +11,7 @@ class EdificioSerializer(serializers.ModelSerializer):
 
 
 class TrabajadorSerializer(serializers.ModelSerializer):
-    salas = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+        salas = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Trabajador
