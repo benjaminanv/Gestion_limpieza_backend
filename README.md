@@ -21,7 +21,7 @@
 - El fin del turno tiene que ocurrir despues del inicio del turno
 - Regla de negocio 1: Al actualizar el estado de limpieza a limpio de una sala el servidor automaticamente genera el registro de hora de ultima limpieza.
 - regla de negocio 2: Un trabajador no puede tener mas de 20 salas asignadas. ( facil de modificar segun necesidad ).
-. Regla de negocio 3: Un trabajador solamente puede generar incidencias de sus salas asignadas
+- Regla de negocio 3: Un trabajador solamente puede generar incidencias de sus salas asignadas
   
 ## Instalacion y Ejecuciom
 1. Clonar repositorio
@@ -46,3 +46,8 @@
 - python manage.py migrate: aplica las migraciones y crea las tablas en db.sqlite3.
 - python manage.py cargar_datos: carga los datos iniciales (1 edificio, 6 trabajadores, 29 salas y 1 incidencia).
 
+## Evidencias
+- ![Evidencia GET](evidencias/Captura%20de%20pantalla%202026-11-15%20222851.png)
+- ![Evidencia POST](evidencias/Captura%20de%20pantalla%202026-11-15%20223016.png)
+- ![Evidencia PUT](evidencias/Captura%20de%20pantalla%202026-11-15%20223127.png)
+- ![Evidencia DELETE](evidencias/Captura%20de%20pantalla%202026-11-15%20223219.png)
